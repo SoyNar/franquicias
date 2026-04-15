@@ -3,9 +3,6 @@ package franquicias.narciris.franquicias.services.ServiceImpl;
 import franquicias.narciris.franquicias.DTos.Request.BranchRequestDto;
 import franquicias.narciris.franquicias.DTos.Request.CommonRequestDto;
 import franquicias.narciris.franquicias.DTos.Response.BranchResponseDto;
-import franquicias.narciris.franquicias.Mappers.BranchMapper;
-import franquicias.narciris.franquicias.Mappers.FranchiseMapper;
-import franquicias.narciris.franquicias.configuration.Custom.EntityNotFoundException;
 import franquicias.narciris.franquicias.models.Branch;
 import franquicias.narciris.franquicias.models.Franchise;
 import franquicias.narciris.franquicias.repositories.BranchInterfaceRepository;
@@ -16,56 +13,71 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BranchServiceImpl  implements BranchInterfaceService {
+public class BranchServiceImpl implements BranchInterfaceService {
+
     private final BranchInterfaceRepository branchRepository;
     private final FranchiseInterfaceRepository franchiseRepository;
 
-    public BranchServiceImpl(BranchInterfaceRepository branchRepository,FranchiseInterfaceRepository franchiseRepository) {
+    public BranchServiceImpl(BranchInterfaceRepository branchRepository,
+                             FranchiseInterfaceRepository franchiseRepository) {
         this.branchRepository = branchRepository;
         this.franchiseRepository = franchiseRepository;
     }
 
     @Override
-    public BranchResponseDto addBranch(Long branchId,CommonRequestDto requestDto) {
+    public BranchResponseDto addBranch(Long franchiseId, CommonRequestDto requestDto) {
+        Franchise franchise = franchiseRepository.findById(franchiseId)
+                .orElseThrow(() -> new RuntimeException("Franquicia no encontrada"));
 
-        Franchise franchise = franchiseRepository.findById(branchId)
-                .orElseThrow(() -> new EntityNotFoundException("Franquicia no encontrada"));
-
-        Branch branch = BranchMapper.toEntity(requestDto);
-        branch.setFranchise(franchise);
+        Branch branch = Branch.builder()
+                .name(requestDto.getName())
+                .franchise(franchise)
+                .build();
 
         Branch saved = branchRepository.save(branch);
 
-        return BranchMapper.toResponse(saved);
+        return BranchResponseDto.builder()
+                .id(saved.getId())
+                .name(saved.getName())
+                .franchiseId(saved.getFranchise().getId())
+                .build();
     }
 
     @Override
-    public BranchResponseDto updateBranchName(BranchRequestDto requestDto) {
-
-        Branch branch = branchRepository.findById(requestDto.getId())
-                .orElseThrow(() -> new EntityNotFoundException("Sucursal no encontrada"));
+    public BranchResponseDto updateBranchName(Long branchId, BranchRequestDto requestDto) {
+        Branch branch = branchRepository.findById(branchId)
+                .orElseThrow(() -> new RuntimeException("Sucursal no encontrada"));
 
         branch.setName(requestDto.getName());
+        Branch saved = branchRepository.save(branch);
 
-        Branch updated = branchRepository.save(branch);
-
-        return BranchMapper.toResponse(updated);
+        return BranchResponseDto.builder()
+                .id(saved.getId())
+                .name(saved.getName())
+                .franchiseId(saved.getFranchise().getId())
+                .build();
     }
 
     @Override
     public List<BranchResponseDto> getAll() {
-        List<Branch> branches = branchRepository.findAll();
-
-        return branches.stream()
-                .map(BranchMapper::toResponse)
+        return branchRepository.findAll().stream()
+                .map(branch -> BranchResponseDto.builder()
+                        .id(branch.getId())
+                        .name(branch.getName())
+                        .franchiseId(branch.getFranchise().getId())
+                        .build())
                 .toList();
     }
 
     @Override
     public BranchResponseDto findById(Long id) {
         Branch branch = branchRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Franquicia no encontrada"));
+                .orElseThrow(() -> new RuntimeException("Sucursal no encontrada"));
 
-        return BranchMapper.toResponse(branch);
+        return BranchResponseDto.builder()
+                .id(branch.getId())
+                .name(branch.getName())
+                .franchiseId(branch.getFranchise().getId())
+                .build();
     }
 }

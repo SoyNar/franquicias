@@ -25,21 +25,24 @@ public class BranchController {
     }
 
 
-    @PostMapping
-    public ResponseEntity<BranchResponseDto> addBranch(@RequestBody CommonRequestDto requestDto) {
+    @PostMapping("/franquicias/{franchiseId}/sucursales")
+    public ResponseEntity<BranchResponseDto> addBranch(
+            @PathVariable Long franchiseId,
+            @RequestBody CommonRequestDto requestDto) {
 
-        BranchResponseDto response = branchService.addBranch(requestDto);
-
+        BranchResponseDto response = branchService.addBranch(franchiseId, requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping
-    public ResponseEntity<BranchResponseDto> updateBranchName(@RequestBody BranchRequestDto requestDto) {
+    @PutMapping("/{branchId}")
+    public ResponseEntity<BranchResponseDto> updateBranchName(
+            @PathVariable Long branchId,
+            @RequestBody BranchRequestDto requestDto) {
 
-        BranchResponseDto response = branchService.updateBranchName(requestDto);
-
+        BranchResponseDto response = branchService.updateBranchName(branchId, requestDto);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
     @GetMapping
     public ResponseEntity<List<BranchResponseDto>> getAll() {
 
