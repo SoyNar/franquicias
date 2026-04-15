@@ -10,6 +10,8 @@
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/FranquiciasApplication.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Mappers/BranchMapper.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Mappers/FranchiseMapper.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/configuration/Custom/EntityNotFoundException.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/configuration/Handler/HandlerException.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/models/Branch.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/models/Franchise.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/models/Product.java

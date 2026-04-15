@@ -5,6 +5,7 @@ import franquicias.narciris.franquicias.DTos.Request.CommonRequestDto;
 import franquicias.narciris.franquicias.DTos.Response.BranchResponseDto;
 import franquicias.narciris.franquicias.Mappers.BranchMapper;
 import franquicias.narciris.franquicias.Mappers.FranchiseMapper;
+import franquicias.narciris.franquicias.configuration.Custom.EntityNotFoundException;
 import franquicias.narciris.franquicias.models.Branch;
 import franquicias.narciris.franquicias.models.Franchise;
 import franquicias.narciris.franquicias.repositories.BranchInterfaceRepository;
@@ -35,7 +36,7 @@ public class BranchServiceImpl  implements BranchInterfaceService {
     public BranchResponseDto updateBranchName(BranchRequestDto requestDto) {
 
         Branch branch = branchRepository.findById(requestDto.getId())
-                .orElseThrow(() -> new RuntimeException("Sucursal no encontrada"));
+                .orElseThrow(() -> new EntityNotFoundException("Sucursal no encontrada"));
 
         branch.setName(requestDto.getName());
 
@@ -56,7 +57,7 @@ public class BranchServiceImpl  implements BranchInterfaceService {
     @Override
     public BranchResponseDto findById(Long id) {
         Branch branch = branchRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Franquicia no encontrada"));
+                .orElseThrow(() -> new EntityNotFoundException("Franquicia no encontrada"));
 
         return BranchMapper.toResponse(branch);
     }

@@ -17,9 +17,11 @@ franquicias/narciris/franquicias/DTos/Response/BranchResponseDto$BranchResponseD
 franquicias/narciris/franquicias/DTos/Request/ProductRequestDto.class
 franquicias/narciris/franquicias/DTos/Response/FranchiseResponseDto.class
 franquicias/narciris/franquicias/repositories/ProductInterfaceRepository.class
+franquicias/narciris/franquicias/configuration/Custom/EntityNotFoundException.class
 franquicias/narciris/franquicias/repositories/BranchInterfaceRepository.class
 franquicias/narciris/franquicias/DTos/Request/BranchRequestDto$BranchRequestDtoBuilder.class
 franquicias/narciris/franquicias/DTos/Request/CommonRequestDto.class
+franquicias/narciris/franquicias/configuration/Handler/HandlerException.class
 franquicias/narciris/franquicias/services/InterfaceService/ProductInterfaceService.class
 franquicias/narciris/franquicias/DTos/Response/ProductResponseDto.class
 franquicias/narciris/franquicias/DTos/Response/CommonResponseDto$CommonResponseDtoBuilder.class

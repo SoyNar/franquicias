@@ -3,6 +3,7 @@ package franquicias.narciris.franquicias.services.ServiceImpl;
 import franquicias.narciris.franquicias.DTos.Request.CommonRequestDto;
 import franquicias.narciris.franquicias.DTos.Response.FranchiseResponseDto;
 import franquicias.narciris.franquicias.Mappers.FranchiseMapper;
+import franquicias.narciris.franquicias.configuration.Custom.EntityNotFoundException;
 import franquicias.narciris.franquicias.models.Franchise;
 import franquicias.narciris.franquicias.repositories.FranchiseInterfaceRepository;
 import franquicias.narciris.franquicias.services.InterfaceService.FranchiseInterfaceService;
@@ -32,7 +33,7 @@ public class FranchiseServiceImpl  implements FranchiseInterfaceService {
     public Franchise updateFranchiseName(Long id, String newName) {
 
         Franchise franchise = franchiseRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Franchise no encontrada"));
+                .orElseThrow(() -> new EntityNotFoundException("Franchise no encontrada"));
 
         franchise.setName(newName);
 
@@ -53,7 +54,7 @@ public class FranchiseServiceImpl  implements FranchiseInterfaceService {
     public FranchiseResponseDto findById(Long id) {
 
         Franchise franchise = franchiseRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Franquicia no encontrada"));
+                .orElseThrow(() -> new EntityNotFoundException("Franquicia no encontrada"));
 
         return FranchiseMapper.toResponse(franchise);
     }

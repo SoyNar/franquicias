@@ -10,7 +10,7 @@ import lombok.Setter;
 public class ProductResponseDto {
     private Long id;
     private String name;
-    private Integer stock;
+    private Double stock;
     private Long branchId;
     private String branchName;
 }

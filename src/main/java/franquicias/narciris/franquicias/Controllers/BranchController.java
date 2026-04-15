@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/sucursales")
 public class BranchController {
@@ -36,6 +38,11 @@ public class BranchController {
         BranchResponseDto response = branchService.updateBranchName(requestDto);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+    @GetMapping
+    public ResponseEntity<List<BranchResponseDto>> getAll() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(branchService.getAll());
     }
 
 
