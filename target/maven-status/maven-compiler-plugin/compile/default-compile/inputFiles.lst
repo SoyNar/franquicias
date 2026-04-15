@@ -1,8 +1,10 @@
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Controllers/BranchController.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Controllers/FranchiseController.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Controllers/ProductController.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Request/BranchRequestDto.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Request/CommonRequestDto.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Request/ProductRequestDto.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Request/ProductUpdateRequestDto.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Response/BranchResponseDto.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Response/CommonResponseDto.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/DTos/Response/FranchiseResponseDto.java
@@ -10,6 +12,7 @@
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/FranquiciasApplication.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Mappers/BranchMapper.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Mappers/FranchiseMapper.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/Mappers/ProductMapper.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/configuration/Custom/EntityNotFoundException.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/configuration/Handler/HandlerException.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/models/Branch.java
@@ -23,3 +26,4 @@
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/services/InterfaceService/ProductInterfaceService.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/services/ServiceImpl/BranchServiceImpl.java
 /home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/services/ServiceImpl/FranchiseServiceImpl.java
+/home/nar/Descargas/franquicias/src/main/java/franquicias/narciris/franquicias/services/ServiceImpl/ProductServiceImpl.java

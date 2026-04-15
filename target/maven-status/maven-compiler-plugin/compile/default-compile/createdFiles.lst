@@ -2,13 +2,17 @@ franquicias/narciris/franquicias/services/InterfaceService/BranchInterfaceServic
 franquicias/narciris/franquicias/services/ServiceImpl/FranchiseServiceImpl.class
 franquicias/narciris/franquicias/DTos/Request/CommonRequestDto$CommonRequestDtoBuilder.class
 franquicias/narciris/franquicias/Mappers/BranchMapper.class
+franquicias/narciris/franquicias/DTos/Request/ProductUpdateRequestDto.class
 franquicias/narciris/franquicias/Mappers/FranchiseMapper.class
 franquicias/narciris/franquicias/DTos/Response/ProductResponseDto$ProductResponseDtoBuilder.class
 franquicias/narciris/franquicias/services/InterfaceService/FranchiseInterfaceService.class
 franquicias/narciris/franquicias/models/Product.class
 franquicias/narciris/franquicias/Controllers/BranchController.class
 franquicias/narciris/franquicias/DTos/Response/BranchResponseDto.class
+franquicias/narciris/franquicias/DTos/Request/ProductRequestDto$ProductRequestDtoBuilder.class
+franquicias/narciris/franquicias/services/ServiceImpl/ProductServiceImpl.class
 franquicias/narciris/franquicias/repositories/FranchiseInterfaceRepository.class
+franquicias/narciris/franquicias/Mappers/ProductMapper.class
 franquicias/narciris/franquicias/DTos/Request/BranchRequestDto.class
 franquicias/narciris/franquicias/services/ServiceImpl/BranchServiceImpl.class
 franquicias/narciris/franquicias/models/Branch$BranchBuilder.class
@@ -32,3 +36,4 @@ franquicias/narciris/franquicias/Controllers/FranchiseController.class
 franquicias/narciris/franquicias/models/Product$ProductBuilder.class
 franquicias/narciris/franquicias/models/Franchise.class
 franquicias/narciris/franquicias/FranquiciasApplication.class
+franquicias/narciris/franquicias/Controllers/ProductController.class

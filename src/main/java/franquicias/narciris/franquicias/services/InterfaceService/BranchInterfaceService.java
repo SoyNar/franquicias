@@ -9,7 +9,7 @@ import franquicias.narciris.franquicias.models.Branch;
 import java.util.List;
 
 public interface BranchInterfaceService {
-    BranchResponseDto addBranch(BranchRequestDto requestDto);
+    BranchResponseDto addBranch(Long branchId,CommonRequestDto requestDto);
     BranchResponseDto updateBranchName(BranchRequestDto requestDto);
     List<BranchResponseDto> getAll();
     BranchResponseDto findById(Long id);

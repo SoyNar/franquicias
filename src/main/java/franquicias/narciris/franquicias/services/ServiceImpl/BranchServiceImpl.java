@@ -9,6 +9,7 @@ import franquicias.narciris.franquicias.configuration.Custom.EntityNotFoundExcep
 import franquicias.narciris.franquicias.models.Branch;
 import franquicias.narciris.franquicias.models.Franchise;
 import franquicias.narciris.franquicias.repositories.BranchInterfaceRepository;
+import franquicias.narciris.franquicias.repositories.FranchiseInterfaceRepository;
 import franquicias.narciris.franquicias.services.InterfaceService.BranchInterfaceService;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +18,21 @@ import java.util.List;
 @Service
 public class BranchServiceImpl  implements BranchInterfaceService {
     private final BranchInterfaceRepository branchRepository;
+    private final FranchiseInterfaceRepository franchiseRepository;
 
-    public BranchServiceImpl(BranchInterfaceRepository branchRepository) {
+    public BranchServiceImpl(BranchInterfaceRepository branchRepository,FranchiseInterfaceRepository franchiseRepository) {
         this.branchRepository = branchRepository;
+        this.franchiseRepository = franchiseRepository;
     }
 
     @Override
-    public BranchResponseDto addBranch(BranchRequestDto requestDto) {
+    public BranchResponseDto addBranch(Long branchId,CommonRequestDto requestDto) {
+
+        Franchise franchise = franchiseRepository.findById(branchId)
+                .orElseThrow(() -> new EntityNotFoundException("Franquicia no encontrada"));
 
         Branch branch = BranchMapper.toEntity(requestDto);
+        branch.setFranchise(franchise);
 
         Branch saved = branchRepository.save(branch);
 

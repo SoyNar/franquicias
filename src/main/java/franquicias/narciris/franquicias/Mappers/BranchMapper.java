@@ -6,7 +6,7 @@ import franquicias.narciris.franquicias.DTos.Response.BranchResponseDto;
 import franquicias.narciris.franquicias.models.Branch;
 
 public class BranchMapper {
-    public static Branch toEntity(BranchRequestDto request) {
+    public static Branch toEntity(CommonRequestDto request) {
         Branch branch = new Branch();
         branch.setName(request.getName());
         return branch;

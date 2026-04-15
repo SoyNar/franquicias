@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/productos")
 public class ProductController {
 
     private final ProductInterfaceService productService;
@@ -41,7 +41,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateStock(id, requestDto));
     }
 
-    @PatchMapping("/{id}/name")
+    @PatchMapping("/{id}/nombre")
     public ResponseEntity<ProductResponseDto> updateProductName(
             @PathVariable Long id,
             @RequestBody ProductRequestDto requestDto) {

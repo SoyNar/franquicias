@@ -1,6 +1,7 @@
 package franquicias.narciris.franquicias.Controllers;
 
 import franquicias.narciris.franquicias.DTos.Request.BranchRequestDto;
+import franquicias.narciris.franquicias.DTos.Request.CommonRequestDto;
 import franquicias.narciris.franquicias.DTos.Response.BranchResponseDto;
 import franquicias.narciris.franquicias.DTos.Response.FranchiseResponseDto;
 import franquicias.narciris.franquicias.services.ServiceImpl.BranchServiceImpl;
@@ -25,7 +26,7 @@ public class BranchController {
 
 
     @PostMapping
-    public ResponseEntity<BranchResponseDto> addBranch(@RequestBody BranchRequestDto requestDto) {
+    public ResponseEntity<BranchResponseDto> addBranch(@RequestBody CommonRequestDto requestDto) {
 
         BranchResponseDto response = branchService.addBranch(requestDto);
 
