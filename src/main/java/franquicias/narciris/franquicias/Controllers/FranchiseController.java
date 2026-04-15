@@ -27,7 +27,7 @@ public class FranchiseController {
     @PostMapping("/")
     public ResponseEntity<FranchiseResponseDto> addFranchise(@RequestBody CommonRequestDto request) {
         FranchiseResponseDto response = franchiseService.addFranchise(request);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @PutMapping("/{id}")
     public ResponseEntity<FranchiseResponseDto> updateFranchiseName(
@@ -36,7 +36,7 @@ public class FranchiseController {
 
         Franchise updated = franchiseService.updateFranchiseName(id, request.getName());
 
-        return ResponseEntity.ok(FranchiseMapper.toResponse(updated));
+        return ResponseEntity.status(HttpStatus.OK).body(FranchiseMapper.toResponse(updated));
     }
     @GetMapping
     public ResponseEntity<List<FranchiseResponseDto>> getAllFranchises() {

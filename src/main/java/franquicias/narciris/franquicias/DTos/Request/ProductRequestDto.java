@@ -11,5 +11,5 @@ public class ProductRequestDto {
 
     private String name;
     private Double stock;
-    private Long branchId;
+
 }

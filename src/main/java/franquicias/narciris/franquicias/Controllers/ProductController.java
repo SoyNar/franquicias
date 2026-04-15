@@ -1,5 +1,5 @@
 package franquicias.narciris.franquicias.Controllers;
-
+import org.springframework.http.HttpStatus;
 import franquicias.narciris.franquicias.DTos.Request.ProductRequestDto;
 import franquicias.narciris.franquicias.DTos.Response.ProductResponseDto;
 import franquicias.narciris.franquicias.services.InterfaceService.ProductInterfaceService;
@@ -18,11 +18,10 @@ public class ProductController {
         this.productService = productService;
     }
 
-    // ✅ Crear producto
     @PostMapping
-    public ResponseEntity<ProductResponseDto> addProduct(@RequestBody ProductRequestDto requestDto) {
+    public ResponseEntity<ProductResponseDto> addProduct (  @PathVariable Long branchId,@RequestBody ProductRequestDto requestDto) {
 
-        return ResponseEntity.ok(productService.addProduct(requestDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.addProduct(branchId,requestDto));
     }
 
     @DeleteMapping("/{id}")
@@ -38,7 +37,7 @@ public class ProductController {
             @PathVariable Long id,
             @RequestBody ProductRequestDto requestDto) {
 
-        return ResponseEntity.ok(productService.updateStock(id, requestDto));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.updateStock(id, requestDto));
     }
 
     @PatchMapping("/{id}/nombre")
@@ -46,14 +45,14 @@ public class ProductController {
             @PathVariable Long id,
             @RequestBody ProductRequestDto requestDto) {
 
-        return ResponseEntity.ok(productService.updateProductName(id, requestDto));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.updateProductName(id, requestDto));
     }
 
     @GetMapping("/top-stock/{franchiseId}")
     public ResponseEntity<List<ProductResponseDto>> getTopProducts(
             @PathVariable Long franchiseId) {
 
-        return ResponseEntity.ok(
+        return ResponseEntity.status(HttpStatus.OK).body(
                 productService.getTopStockProductPerBranch(franchiseId)
         );
     }

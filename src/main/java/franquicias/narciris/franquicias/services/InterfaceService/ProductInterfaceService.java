@@ -7,7 +7,7 @@ import franquicias.narciris.franquicias.models.Product;
 import java.util.List;
 
 public interface ProductInterfaceService {
-    ProductResponseDto addProduct(ProductRequestDto requestDto);
+    ProductResponseDto addProduct(Long branchId,ProductRequestDto requestDto);
     void deleteProduct(Long productId);
     ProductResponseDto updateStock(Long id, ProductRequestDto requestDto);
     ProductResponseDto updateProductName(Long id, ProductRequestDto requestDto);

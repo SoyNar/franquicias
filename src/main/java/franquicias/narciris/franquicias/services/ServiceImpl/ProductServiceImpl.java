@@ -29,9 +29,9 @@ public class ProductServiceImpl implements ProductInterfaceService {
     }
 
     @Override
-    public ProductResponseDto addProduct(ProductRequestDto requestDto) {
+    public ProductResponseDto addProduct(Long branchId,ProductRequestDto requestDto) {
 
-        Branch branch = branchRepository.findById(requestDto.getBranchId())
+        Branch branch = branchRepository.findById(branchId)
                 .orElseThrow(() -> new EntityNotFoundException("Sucursal no encontrada"));
 
         Product product = ProductMapper.toEntity(requestDto);
@@ -51,7 +51,6 @@ public class ProductServiceImpl implements ProductInterfaceService {
         productRepository.delete(product);
     }
 
-    // ✅ CORREGIDO
     @Override
     public ProductResponseDto updateStock(Long id, ProductRequestDto requestDto) {
 
