@@ -10,6 +10,6 @@ import lombok.*;
 public class ProductRequestDto {
 
     private String name;
-    private Double stock;
+    private Integer stock;
 
 }

@@ -16,8 +16,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "unique")
     private String name;
-    private Double stock;
+    private Integer stock;
     @ManyToOne
     @JoinColumn(name = "branch_id")
     private Branch branch;
